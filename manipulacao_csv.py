@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import filedialog 
 from tkinter import messagebox
-
+import openpyxl
 
 def manipulacao():
     tabela = pd.read_csv("extractionPDF.csv")
@@ -21,10 +21,6 @@ def manipulacao():
             total = total.group()
         tabela.iat[row, index_total]= total
         tabela.iat[row, index_description] = re.sub(separacao_dados, "", tabela.iat[row, index_description])
-    tabela.to_excel("extractionPDF.xlsx")
+    tabela.to_excel("extractionPDF2.xlsx")
     os.remove("extractionPDF.csv")
     messagebox.showinfo('[AVISO]','Já terminei de extrair os dados e salvei o arquivo extractionPDF na pasta do programa.')
-
-    
-    
-    
